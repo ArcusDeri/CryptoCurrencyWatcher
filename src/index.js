@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Header from './components/common/HeaderComponent/header'
+import List from './components/common/ListComponent/list'
 import './index.css'
 
 const App = () => {
@@ -9,7 +10,7 @@ const App = () => {
         <div>
             <Header />
             <h1>{title}</h1>
-            <p>Your source of crypto currency world informations.</p>
+            <List />
         </div>
     )
 }
