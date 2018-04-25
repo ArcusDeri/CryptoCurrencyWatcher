@@ -1,8 +1,8 @@
 import React from 'react'
 import { handleResponse } from '../../../helpers'
 import { API_URL } from '../../../config'
-import '../Table.css'
 import Loading from '../LoadingComponent/Loading'
+import Table from '../ListComponent/Table'
 
 class List extends React.Component{
     constructor(){
@@ -55,37 +55,10 @@ class List extends React.Component{
             return <div className="error">{this.state.error}</div>
         }
         return(
-            <div className="Table-container">
-                <table className="Table">
-                    <thead className="Table-head">
-                        <tr>
-                            <th>Cryptocurrency</th>
-                            <th>Price</th>
-                            <th>Market Cap</th>
-                            <th>24H Change Cap</th>
-                        </tr>
-                    </thead>
-                    <tbody className="Table-body">
-                    {this.state.currencies.map((currency) => (
-                        <tr key={currency.id}>
-                            <td>
-                                <span className="Table-rank">{currency.rank}</span>
-                                {currency.name}
-                            </td>
-                            <td>
-                                <span className="Table-dollar">$ {currency.price}</span>
-                            </td>
-                            <td>
-                                <span className="Table-dollar">$ {currency.marketCap}</span>
-                            </td>
-                            <td>
-                                {this.renderChangePercent(currency.percentChange24h)}
-                            </td>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-            </div>
+            <Table 
+                currencies={currencies}
+                renderChangePercent={this.renderChangePercent}
+            />
         )
     }
 }
