@@ -29,7 +29,7 @@ class List extends React.Component{
         }
     }
 
-    componentDidMount(){
+    fetchCurrencies(){
         this.setState({loading: true})
 
         const { page } = this.state
@@ -52,6 +52,10 @@ class List extends React.Component{
                 })
             });
     }
+
+    componentDidMount(){
+        this.fetchCurrencies()
+    }
     
     handlePaginationClick(direction){
         let nextPage = this.state.page
@@ -61,7 +65,10 @@ class List extends React.Component{
         }else{
             nextPage--
         }
-        this.setState({ page: nextPage })
+        this.setState({ page: nextPage }, () => {
+            this.fetchCurrencies()
+        })
+
     }
 
     render(){

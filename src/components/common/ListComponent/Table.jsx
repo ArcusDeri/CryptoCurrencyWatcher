@@ -41,7 +41,7 @@ const Table = (props) => {
     )
 }
 
-Table.PropTypes = {
+Table.propTypes = {
     currencies: PropTypes.array.isRequired,
     renderChangePercent: PropTypes.func.isRequired
 }
