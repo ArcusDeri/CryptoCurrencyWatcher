@@ -18,17 +18,6 @@ class List extends React.Component{
         this.handlePaginationClick = this.handlePaginationClick.bind(this)
     }
 
-    renderChangePercent(percent){
-        if(percent > 0)
-            return <span className="percent-raised">{percent}% &uarr;</span>
-        else if(percent < 0){
-            return <span className="percent-fallen">{percent}% &darr;</span>
-        }
-        else{
-            return <span>{percent}</span>
-        }
-    }
-
     fetchCurrencies(){
         this.setState({loading: true})
 
@@ -85,7 +74,6 @@ class List extends React.Component{
             <div>
             <Table 
                 currencies={currencies}
-                renderChangePercent={this.renderChangePercent}
             />
             <Pagination 
                 page={page}
